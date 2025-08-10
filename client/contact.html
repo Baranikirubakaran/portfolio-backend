@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <section class="contact-section">
+    <h2 class="contact-title">Contact</h2>
+    <p class="contact-subtitle">
+      Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+    </p>
+
+    <div class="contact-container">
+      <!-- Left Contact Info -->
+      <div class="contact-info">
+        <div class="info-box">
+          <div class="icon-circle">
+            <img src="https://img.icons8.com/color/48/marker--v1.png" alt="Address" />
+          </div>
+          <div>
+            <h3>Address</h3>
+            <p>3/40, Seerampatti (Vi), Krishnapuram (Po),<br>Dharmapuri (Dt), Tamil Nadu - 635 202</p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="icon-circle">
+            <img src="https://img.icons8.com/color/48/phone--v1.png" alt="Phone" />
+          </div>
+          <div>
+            <h3>Call Us</h3>
+            <p>+91 8825 8451 40</p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="icon-circle">
+            <img src="https://img.icons8.com/color/48/new-post.png" alt="Email" />
+          </div>
+          <div>
+            <h3>Email Us</h3>
+            <p>kirubakaran2543@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Contact Form -->
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+        </div>
+        <input type="text" name="subject" placeholder="Subject" required />
+        <textarea name="message" placeholder="Message" rows="6" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('contactForm');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const formData = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      subject: form.subject.value.trim(),
+      message: form.message.value.trim()
+    };
+
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("✅ Message sent successfully!");
+        form.reset();
+      } else {
+        alert("❌ Error: " + (data.error || "Something went wrong."));
+      }
+    } catch (err) {
+      console.error(err);
+      alert("❌ Failed to send message. Server error.");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,763 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Font */
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f6f6f7;
+    /* background-color: #fff; */
+    color: #333;
+  }
+
+html {
+ scroll-behavior: smooth;
+}
+
+
+  /* Apple-like Nav Bar */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f5f5f7;
+  padding: 22px 0; /* increased height */
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo-link {
+  position: absolute;
+  left: 0;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-links a {
+  color: #555;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: #000;
+}
+
+
+
+
+
+
+/* Main Container */
+
+.container {
+  background-color: #fff;
+  margin-top: 0px;
+  margin-left: 0px;
+  align-items: center;
+  padding: 200px 170px;
+  padding-bottom: 130px;
+}
+
+/* Left Section */
+
+.left-section {
+  max-width: 700px;
+}
+
+.left-section h1 {
+  font-size: 2.7rem;
+  margin-bottom: 10px;
+}
+
+.left-section h1 span {
+  color: gray;
+}
+
+.left-section h2 {
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 25px;
+  font-weight: 600;
+  position: relative;
+}
+
+.resume-text {
+  font-weight: 600;
+  font-size: 1.7rem;
+  margin: 10px 0;
+  margin-left: 160px;
+}
+
+.buttons {
+  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-left: 95px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-right: 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.download-btn {
+  background-color: #c0392b;
+  color: white;
+}
+
+.download-btn:hover {
+  background-color: #a93226;
+}
+
+.open-btn {
+  padding-left: 37px;
+  padding-right: 37px;
+  background-color: #27ae60;
+  color: white;
+}
+
+.open-btn:hover {
+  background-color: #229954;
+}
+
+
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+
+
+
+.images{
+  
+  width: 40%;
+  height: 100%;
+  position: absolute;
+  top: 15px;
+  bottom: 20px;
+  right: 20px;
+}
+
+.images img{
+    position: absolute;
+}
+
+.profile-photo{
+    height: 419px;
+    left: 50px;
+    top: 85px;
+}
+.bg-shape{
+    height: 525px ;
+    top: 108px;
+}
+
+/* Second page */
+
+/* Reset */
+
+
+/* About Section */
+.about-section {
+  background-color: #F5F5F7;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center; /* 👈 Add this line */
+}
+.content h2 {
+  text-align: center;
+  font-size: 2.0rem; /* 👈 size konjam kammi pannirukom */
+  margin-bottom: 20px;
+}
+
+/* Section Title with underline */
+.section-titles {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #2c3e50;
+  position: relative;
+  display: inline-block; /* 👈 Keeps underline tight to text */
+  padding-bottom: 30px;
+}
+
+.section-titles::after {
+  content: '';
+  display: block;
+  width: 80px;        /* 👈 underline length (was 80px) */
+  height: 4px;         /* 👈 thickness (was 4px) */
+  background-color: #007BFF;
+  margin: 4px auto 0;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+
+/* Paragraph Section */
+.paragraph {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 80px; /* increased space between image and text */
+  row-gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* About Image */
+.about-image {
+  height: 450px;
+  margin-left: -40px;
+  margin-right: 60px; /* 👈 this adds space between image and text */
+  border-radius: 10px;
+  object-fit: cover;
+}
+/* Text Box */
+.text-box {
+  max-width: 600px;
+}
+
+.text-box p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-left: 30px; /* 👈 adds inner shift to the right */
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+.info-text {
+  font-size: 19px;
+  line-height: 1.6;  /* optional */
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.info-text:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* 3rd page */
+
+
+
+/* Section Wrapper */
+.projects-section {
+  padding: 50px 0px;
+  max-width: 1230px;
+  margin: 0 auto;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2c3e50;
+  position: relative;
+  display: inline-block;
+  animation: fadeInUp 0.8s ease-in-out 0.2s forwards;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 4px;
+  background-color: #007BFF;
+  margin: 4px auto 0;
+  border-radius: 2px;
+  animation: underlineExpand 0.6s ease-out 0.4s forwards;
+}
+
+.section-title-wrapper {
+  text-align: center;
+}
+
+/* Animation for the underline */
+@keyframes underlineExpand {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 65px;
+    opacity: 1;
+  }
+}
+
+/* Optional heading fade-up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Grid Layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 55px;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+/* Individual Card */
+.project-card {
+  background: #ffffff;
+  border: 1px solid #e1e5ea;
+  border-radius: 16px;
+  width: 115%;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Project Image */
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+/* Text Content */
+.text-content {
+  padding: 20px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+
+.text-content h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.text-content p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* View Button */
+.btn {
+  display: inline-block;
+  background-color: #007BFF;
+  color: #fff;
+  padding: 8px 18px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* View More Button */
+.view-more-btn {
+  margin: 40px auto 0;
+  display: block;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-more-btn:hover {
+  background-color: #111;
+}
+
+.center-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.view-more-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+
+/* 4th page  */
+
+.skills-section {
+  padding: 20px;
+}
+
+.section-title-4 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  padding-bottom: 16px; /* 👉 idhu thaan underline-kum heading-kum gap-a kudukkudhu */
+  position: relative;
+}
+
+.section-title-4::after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 4px;
+  background-color: #007BFF;
+  margin: 1px auto 0;
+  border-radius: 2px;
+}
+
+.category {
+  margin-bottom: 60px;
+}
+
+.category h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #45505B;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.items {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 24px;
+  padding: 10px 0;
+}
+
+.items.second-row {
+  margin-top: 30px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+  text-align: center;
+}
+
+.item img {
+  width: 132px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.item span {
+  font-size: 14px;
+  color: #333;
+}
+
+/* 5th page */
+/*Certificate section */
+
+/* ===== Section Wrapper for Certificates ===== */
+
+.certificates-section {
+  padding: 50px 0; /* Removed left & right padding */
+  padding-top: 10px;
+  text-align: center;
+  overflow: hidden; /* Prevents horizontal scrollbar during scroll */
+  width: 100%; /* Ensure full viewport width */
+}
+
+
+/* ===== Section Heading Style ===== */
+.section-title-5 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  padding-bottom: 65px;
+  position: relative;
+}
+
+/* ===== Animated Underline for Heading ===== */
+.section-title-5::after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 4px;
+  background-color: #007BFF; /* Blue underline effect */
+  margin: 1px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== Outer Carousel Container ===== */
+.certificates-carousel {
+  overflow: hidden; /* Hides scroll overflow */
+  width: 100%;
+  position: relative;
+}
+
+/* ===== Scrolling Track Container ===== */
+.certificate-track {
+  display: flex;
+  gap: 20px;  /* Adds space between each certificate */
+  animation: scrollLoop 40s linear infinite; /* increased duration for smoother scroll */
+  width: fit-content; /* Width adjusts to content */
+}
+
+/* ===== Keyframes for Continuous Left Scroll Animation ===== */
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0%); /* Start position */
+  }
+  100% {
+    transform: translateX(-50%); /* Scroll halfway (for looping effect) */
+  }
+}
+
+/* ===== Individual Certificate Box Style ===== */
+.certificate-item {
+  flex: 0 0 auto; /* Prevent shrinking */
+  width: 200px;
+  height: 140px; /* Fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+}
+
+/* ===== Image Style Inside Each Certificate Box ===== */
+.certificate-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures the image fills the box without distortion */
+  border-radius: 8px;
+  display: block;
+  
+}
+
+
+/* My Journey section */
+
+/* Timeline Section */
+.timeline-section {
+  background-color: #f9f9f9;
+  padding: 50px 20px;
+}
+
+/* Section Heading with Blue Underline */
+.timeline-title {
+  text-align: center;
+  font-size: 36px;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.timeline-title::after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 4px;
+  background-color: #007BFF;
+  margin: 1px auto 0;
+  border-radius: 2px;
+}
+
+/* Timeline Items */
+.timeline-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.timeline-year {
+  min-width: 130px; /* Adjust width for proper alignment */
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff;
+  padding-top: 6px;
+  text-align: right;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  background-color: #007bff;
+  border-radius: 50%;
+  margin: 0 30px;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.timeline-content {
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  flex: 1;
+}
+
+.timeline-content h3 {
+  margin-bottom: 6px;
+  font-size: 18px;
+  color: #333;
+}
+
+.timeline-content p {
+  margin: 0;
+  font-size: 15px;
+  color: #666;
+}
+
+
+
+/* Footer section */
+
+.footer {
+  background-color: #f5f5f5;
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  color: #333;
+  border-top: 1px solid #d2d2d7;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1 1 180px;
+  margin: 10px;
+}
+
+.footer-column h4 {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+/* Anchor link styles inside footer */
+.footer-column a {
+  color: inherit;               /* same as parent text color */
+  text-decoration: none;
+  font-weight: inherit;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #000;               /* optional blue on hover */
+  text-decoration: underline;
+}
