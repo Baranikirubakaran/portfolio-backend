@@ -1,45 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirubakaran Portfolio</title>
+    <style>
+        .buttons {
+            margin-top: 20px;
+        }
+        .download-btn, .open-btn {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .download-btn:hover, .open-btn:hover {
+            background-color: #219150;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<main class="container" id="home">
+    <div class="left-section">
+        <h1>Hi, I am <span>Kirubakaran.M</span></h1>
+        <h2>Fullstack Developer & Designer</h2>
+        <p class="resume-text">Resume</p>
+        <div class="buttons">
+            <button class="download-btn">Download</button>
+            <button class="open-btn">Open</button>
+        </div>
+    </div>
+</main>
 
-  <!-- Sections -->
-  <section id="home" class="section">
-    <h1>Home</h1>
-  </section>
+<script>
+// Force download
+document.querySelector('.download-btn').addEventListener('click', function () {
+    fetch('kirubakaranresume.pdf')
+        .then(res => res.blob())
+        .then(blob => {
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = 'Kirubakaran-Resume.pdf';
+            link.click();
+            window.URL.revokeObjectURL(link.href);
+        })
+        .catch(err => console.error('Download failed:', err));
+});
 
-  <section id="about" class="section">
-    <h1>About Me</h1>
-  </section>
-
-  <section id="projects" class="section">
-    <h1>Projects</h1>
-  </section>
-
-  <section id="skills" class="section">
-    <h1>Skills</h1>
-  </section>
-
-  <section id="contact" class="section">
-    <h1>Contact</h1>
-  </section>
+// Open in new tab
+document.querySelector('.open-btn').addEventListener('click', function () {
+    window.open('kirubakaranresume.pdf', '_blank');
+});
+</script>
 
 </body>
 </html>
