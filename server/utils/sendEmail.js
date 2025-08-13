@@ -1,28 +1,24 @@
-const nodemailer = require("nodemailer");
+// server/utils/sendEmail.js
+const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
+dotenv.config();
 
-const sendEmail = async ({ name, email, subject, message }) => {
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
-    }
-  });
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
 
+async function sendEmail({ name, email, subject, message }) {
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER, // Or your personal email
-    subject: `New Contact Form Submission: ${subject}`,
-    html: `
-      <h3>New Message from Portfolio Contact Form</h3>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Subject:</strong> ${subject}</p>
-      <p><strong>Message:</strong><br/>${message}</p>
-    `
+    to: process.env.EMAIL_USER,
+    subject: `Portfolio Contact: ${subject}`,
+    text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`
   };
-
   await transporter.sendMail(mailOptions);
-};
+}
 
 module.exports = sendEmail;
