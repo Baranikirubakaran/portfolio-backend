@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('contactForm');
+  if (!form) return;
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -17,11 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     try {
-      const res = await fetch("https://kirubakaran-mkk-portfolio.onrender.com/api/contact", {
+      const res = await fetch("http://localhost:5000/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
       });
 
@@ -35,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     } catch (err) {
       console.error(err);
-      alert("❌ Failed to send message. Server error.");
+      alert("❌ Failed to send message. " + err.message);
     }
   });
 });
