@@ -64,12 +64,14 @@
   </section>
 
 <script>
-// contact.js
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contactForm");
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('contactForm');
   if (!form) return;
 
-  form.addEventListener("submit", async function (e) {
+  // Use relative path so same-origin (works both local & deployed)
+  const API = '/api/contact';
+
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const formData = {
@@ -85,29 +87,31 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/contact", {
-        // 🚀 Local test — deploy pannumbodhu URL change pannu
+      const res = await fetch(API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
       });
 
-      const data = await res.json();
+      // Robust parsing: if server sends non-JSON (HTML/error page), show that text
+      const text = await res.text();
+      let data;
+      try { data = text ? JSON.parse(text) : {}; } catch (err) { data = { error: text }; }
 
       if (res.ok) {
-        alert("✅ Message sent successfully!");
+        alert("✅ " + (data.message || "Message sent successfully!"));
         form.reset();
       } else {
-        alert("❌ Error: " + (data.error || "Something went wrong."));
+        alert("❌ Error: " + (data.error || data.message || "Something went wrong."));
       }
     } catch (err) {
-      console.error("❌ Fetch Error:", err);
+      console.error("Fetch failed:", err);
       alert("❌ Failed to send message. " + err.message);
     }
   });
 });
-
 </script>
+
 
 </body>
 </html>
