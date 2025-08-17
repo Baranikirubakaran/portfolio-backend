@@ -20,16 +20,28 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/mkk_portfolio.html'));
 });
 
-// Connect DB
-(async function connectDB() {
+// ✅ MongoDB Connect with Retry
+async function connectDB() {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log('✅ MongoDB connected');
+
+    // Restore backup data if exists
     await restoreBackup();
   } catch (err) {
     console.error('❌ MongoDB connection error:', err.message);
+
+    // Retry after 30 seconds
+    console.log('⏳ Retrying MongoDB connection in 30 seconds...');
+    setTimeout(connectDB, 30000);
   }
-})();
+}
+
+// Call DB connection
+connectDB();
 
 // Routes
 app.use('/api/contact', contactRoutes);
